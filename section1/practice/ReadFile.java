@@ -1,4 +1,4 @@
-package chapter1;
+package section1.practice;
 import java.io.*;
 import java.util.Scanner;
 
@@ -17,6 +17,6 @@ public class ReadFile {
     //while(input.hasNextLine()) {
     //   System.out.println(input.nextLine());
     //}
-    //input.close();
+    input.close();
   }
 }
