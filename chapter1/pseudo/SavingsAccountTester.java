@@ -1,5 +1,4 @@
 public class SavingsAccountTester {
-
   public static void main(String[] args) throws IOException {
 
     // File with info.txt in Constructor
@@ -12,7 +11,7 @@ public class SavingsAccountTester {
       * loop while Scanner2 has a next double
         // SavingsAccount1 Scanner2 next double in Constructor
         // SavingsAccount1 addInterest of Scanner2 next double
-        // Print line "My savings balance with interest is " followed by SavingsAccount1 balance
+        // Print "My savings balance with interest is " followed by SavingsAccount1 balance
       *
     */
   }

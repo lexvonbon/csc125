@@ -1,12 +1,4 @@
-/*
- * SavingsAccount Class
- * 
- * @author <author>
- * @version <version>
- * 
- */
-
- class SavingsAccount {
+class SavingsAccount {
   // Protected Balance
 
   /* Constructor
