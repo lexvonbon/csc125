@@ -1,14 +1,6 @@
-/**
- * SavingsAccount Class
- * 
- * @author Lex von Biedenfeld
- * @version 1.0
- * 
- * @since 20190214
- * 
- */
+package section1.practice;
 
- class SavingsAccount {
+class SavingsAccount {
   private double balance;
 
   public SavingsAccount(double bal) {

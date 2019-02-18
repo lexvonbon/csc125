@@ -5,7 +5,7 @@ public class SavingsAccountTester {
 
   public static void main(String[] args) throws IOException {
 
-    File myFile = new File(".//info.txt");
+    File myFile = new File("info.txt");
     Scanner acctFile = new Scanner(myFile);
 
     while(acctFile.hasNextLine()) {

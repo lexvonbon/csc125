@@ -1,6 +1,14 @@
-package chapter1;
+/**
+ * SavingsAccount Class
+ * 
+ * @author Lex von Biedenfeld
+ * @version 1.0
+ * 
+ * @since 20190214
+ * 
+ */
 
-class SavingsAccount {
+ class SavingsAccount {
   private double balance;
 
   public SavingsAccount(double bal) {
