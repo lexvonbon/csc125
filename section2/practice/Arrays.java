@@ -2,7 +2,7 @@
  * Arrays
  */
 import java.util.Scanner;
-public class Arrays {
+class Arrays {
 
     public static void main(String[] args) {
         int[] scores = new int[200];

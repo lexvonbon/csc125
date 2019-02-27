@@ -1,5 +1,3 @@
-package section2.practice;
-
 import java.util.Scanner;
 import java.io.*;
 
