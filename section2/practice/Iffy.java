@@ -1,7 +1,4 @@
-package section2.practice;
-
 import java.util.Scanner;
-import java.io.*;
 
 class Iffy {
     public static void main(String[] args) {
