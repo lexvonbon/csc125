@@ -1,13 +1,6 @@
-package section1.practice;
 import java.io.*;
 import java.util.Scanner;
-
-/**
- * Write a description of class ReadFile here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
+/* ReadFile */
 public class ReadFile {
   // instance variables - replace the example below with your own
   public static void main() {

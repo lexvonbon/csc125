@@ -3,3 +3,6 @@
 *.ctxt
 *.bluej
 *.class
+*.zip
+*.tar
+*.gz
