@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.io.*;
 
 public class SavingsAccountTester {
-
   public static void main(String[] args) throws IOException {
 
     File myFile = new File("info.txt");

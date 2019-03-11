@@ -3,40 +3,40 @@
  */
 public class Stack {
   final private int[] data;
-  private int count;
+  private int length;
 
   // Constructor {input: void, output: void}
   public Stack() {
     data = new int[100];
-    count = 0;
+    length = 0;
   }
   // Constructor {input: [int[], int], output: void}
-  public Stack(int[] iData, int iCount) {
+  public Stack(int[] iData, int iLength) {
     data = iData;
-    count = iCount;
+    length = iLength;
   }
   // Copy Constructor {input: Stack, output: null}
   public Stack(final Stack stack) {
-    this(stack.getData(), stack.getCount());
+    this(stack.getData(), stack.getLength());
   }
 
   // Instance Methods
   public void push(final int item) {
-    if(count < data.length) {
-      data[count] = item;
-      count += 1;
+    if(length < data.length) {
+      data[length] = item;
+      length += 1;
     } else {
       throw new IndexOutOfBoundsException("Stack is Full");
     }
   }
   public int pop() {
-    if(count > 0) {
-      count -= 1;
-      return(data[count]);
+    if(length > 0) {
+      length -= 1;
+      return(data[length]);
     } else {
       throw new IndexOutOfBoundsException("Stack is Empty");
     }
   }
   protected int[] getData() { return(data); }
-  protected int getCount() { return(count); }
+  protected int getLength() { return(length); }
 }

@@ -1,18 +1,17 @@
-<project name="SavingsAccount" basedir=".">
+<project name="Assignment 2" basedir=".">
   <property name="src" location="src"/>
   <property name="build" location="build"/>
 
-  <!-- Start It -->
+  <!-- Generate ${build} -->
   <target name="init" description="Generates the Build Location">
     <tstamp/>
     <mkdir dir="${build}"/>
   </target>
 
-  <!-- Build It -->
+  <!-- Build All in ${src} -->
   <target name="compile" depends="init" description="Compiles the Source" >
     <javac srcdir="${src}" destdir="${build}" classpath="${src}">
     </javac>
-    <copy file="${src}\info.txt" todir="${build}"></copy>
   </target>
 
   <target name="clean"
