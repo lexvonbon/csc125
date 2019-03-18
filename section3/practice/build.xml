@@ -1,0 +1,22 @@
+<project name="Interface Practice" basedir=".">
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+
+  <!-- Generate ${build} -->
+  <target name="init" description="Generates the Build Location">
+    <tstamp/>
+    <mkdir dir="${build}"/>
+  </target>
+
+  <!-- Build All in ${src} -->
+  <target name="compile" depends="init" description="Compiles the Source" >
+    <javac srcdir="${src}" destdir="${build}" classpath="${src}">
+    </javac>
+  </target>
+
+  <target name="clean"
+          description="Clean the Build">
+    <!-- Delete the ${build} directory tree -->
+    <delete dir="${build}"/>
+  </target>
+</project>
