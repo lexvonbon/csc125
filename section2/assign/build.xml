@@ -9,7 +9,7 @@
   </target>
 
   <!-- Build All in ${src} -->
-  <target name="compile" depends="init" description="Compiles the Source" >
+  <target name="build" depends="init" description="Compiles the Source" >
     <javac srcdir="${src}" destdir="${build}" classpath="${src}">
     </javac>
   </target>

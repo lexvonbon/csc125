@@ -1,13 +1,13 @@
 /* Country */
 public class Country implements Measurable {
-    private int population;
+    private Integer population;
 
-    public Country(int initPop) {
+    public Country(Integer initPop) {
         population = initPop;
     }
 
     public Integer getMeasure() {
-        return((int)population);
+        return(population);
     }
     
 }

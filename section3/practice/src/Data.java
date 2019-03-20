@@ -1,8 +1,6 @@
-/**
- * Data
- */
+/* Data */
 public class Data {
-    public static double sum(Measurable[] arr) {
+    public static Double sum(Measurable[] arr) {
         double sum = 0;
         for (Measurable object: arr) {
             if (object.getMeasure() instanceof Double) {

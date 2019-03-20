@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class ReadFile {
   // instance variables - replace the example below with your own
   public static void main() {
-    File myFile = new File("C:\\info");
+    File myFile = new File("./info.txt");
     System.out.println(myFile.getAbsoluteFile());
     Scanner input = new Scanner(myFile);
     //while(input.hasNextLine()) {

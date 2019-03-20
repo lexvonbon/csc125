@@ -1,4 +1,4 @@
-import java.math.*;
+import java.lang.Math;
 class SavingsAccount {
   private double balance;
   private double interest;

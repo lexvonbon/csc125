@@ -1,43 +1,20 @@
-<project name="Section 1" basedir="." default="dest">
+<project name="Section 1" basedir=".">
   <property name="src" location="src"/>
   <property name="build" location="build"/>
-  <property name="jar" location="jar"/>
 
-  <!-- Start it -->
-  <target name="init" depends="start"/>
-  <!-- Build it -->
-  <target name="compile" depends="compileazebooster, compileother" description="compile the source for all" />
-
-
-
-<!-- Start azebooster-->
-  <target name="start">
-    <tstamp/>
-    <mkdir dir="${build}"/>
-    <mkdir dir="${jarazebooster}"/>
+  <!-- Start All -->
+  <target name="init">
+    <tstamp />
+    <mkdir dir="${build}" />
   </target>
 
-<!-- Build azeboster-->
-<target name="compile" depends="initazebooster" description="compile the source for azebooster" >
-    <javac srcdir="${src}" destdir="${src}">
-        <classpath>
-            <path refid="classpath"/>
-        </classpath>
-    </javac>
-</target>
+  <!-- Build All -->
+  <target name="compile" description="Compiles the Source" >
+    <javac srcdir="${src}" destdir="${build}" classpath="${src}" />
+  </target>
 
-<!-- Start other-->
-<target name="initother">
-    <tstamp/>
-    <mkdir dir="${buildotherr}"/>
-    <mkdir dir="${jarother}"/>
-</target>
-
-<!-- Build other-->
-<target name="compileother" depends="initother" description="compile the source for other" >
-<javac srcdir="${srcother}" destdir="${buildother}">
-  <classpath>
-    <path refid="classpath"/>
-  </classpath>
-</javac>
+  <!-- Clean All -->
+  <target name="clean" description="Clean the Build">
+    <delete dir="${build}" />
+  </target>
 </project>
