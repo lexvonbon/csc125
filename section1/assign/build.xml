@@ -11,7 +11,12 @@
   <!-- Build All in ${src} -->
   <target name="compile" depends="init" description="Compiles the Source">
     <javac srcdir="${src}" destdir="${build}" classpath="${src}" />
-    <copy file="${src}\info.txt" todir="${build}"></copy>
+    <copy file="${src}\info.txt" todir="${build}" />
+    <jar basedir="${build}" destfile="${build}\SavingsAccount.jar">
+      <manifest>
+        <attribute name="Main-Class" value="SavingsAccountTester" />
+      </manifest>
+    </jar>
   </target>
 
   <target name="clean"

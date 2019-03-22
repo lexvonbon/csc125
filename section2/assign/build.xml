@@ -9,9 +9,29 @@
   </target>
 
   <!-- Build All in ${src} -->
-  <target name="build" depends="init" description="Compiles the Source" >
-    <javac srcdir="${src}" destdir="${build}" classpath="${src}">
-    </javac>
+  <target name="compile" depends="init, problem1, problem2, problem3" description="Compiles the Source" />
+
+  <!-- Build Problem 1 -->
+  <target name="problem1" depends="init" description="Compiles the Source for Problem 1">
+    <javac srcdir="${src}" destdir="${build}" classpath="${src}" includes="Curfew.java" />
+  </target>
+
+  <!-- Build Problem 2 -->
+  <target name="problem2" depends="init" description="Compiles the Source for Problem 2">
+    <javac srcdir="${src}" destdir="${build}" classpath="${src}" includes="SumAndAverage.java" />
+  </target>
+
+  <!-- Build Problem 3 -->
+  <target name="problem3" depends="init" description="Compiles the Source for Problem 3">
+    <javac srcdir="${src}" destdir="${build}" classpath="${src}" includes="Stack.java" />
+    <javac srcdir="${src}" destdir="${build}" classpath="${src}" includes="LargestInt.java" />
+    <jar basedir="${build}" destfile="${build}\LargestInt.jar" includes="LargestInt.class, Stack.class">
+      <manifest>
+        <attribute name="Main-Class" value="LargestInt" />
+      </manifest>
+    </jar>
+    <delete file="${build}\LargestInt.class" />
+    <delete file="${build}\Stack.class" />
   </target>
 
   <target name="clean"

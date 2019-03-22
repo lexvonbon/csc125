@@ -13,7 +13,8 @@
 
 
 ## Build Instructions
- 1. Run `ant compile` in the main directory
+ 1. Run `ant compile` in the main directory or optionally:
+   - `ant problem`_&lt;`int`&gt;_ where _int_ is the problem number
  2. _`cd`_ into `build` directory
 
 ### _Alternative_
