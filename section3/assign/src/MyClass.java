@@ -1,3 +1,6 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
  * MyClass
  * Problem Statement II
@@ -17,7 +20,11 @@ public class MyClass {
   }
 
   public void myMethod3() {
-    File file=new File("filename.txt");
-    Scanner sc=new Scanner(file);
+    try {
+      File file = new File("filename.txt");
+    } catch (FileNotFoundException e) {
+      System.out.println("File Not Found! "+e.message());
+    }
+    Scanner sc = new Scanner(file);
   }
 }
