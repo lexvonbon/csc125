@@ -10,7 +10,25 @@
 
   <!-- Build All in ${src} -->
   <target name="compile" depends="init" description="Compiles the Source" >
-    <javac srcdir="${src}" destdir="${build}" classpath="${src}">
+    <javac destdir="${build}">
+      <src path="${src}\exceptions\" />
+      <src path="${src}\interfaces\" />
+      <include name="${src}/Main.java" />
+    </javac>
+  </target>
+
+  <target name="compile1" depends="init" description="Compiles the Source" >
+    <javac destdir="${build}">
+      <src path="${src}\exceptions\" />
+      <src path="${src}\interfaces\" />
+      <include name="${src}/Main.java" />
+    </javac>
+  </target>
+
+  <target name="compile2" depends="init" description="Compiles the Source" >
+    <property name="interfaces" location="${src}\interfaces">
+    <javac destdir="${build}" srcdir="${interfaces}">
+      <include name="${interfaces}/InterfacesTester.java" />
     </javac>
   </target>
 

@@ -1,5 +1,6 @@
+package interfaces;
 /* Country */
-public class Country implements Measurable, Comparable {
+public class Country implements Measurable {
     private Integer population;
 
     public Country(Integer initPop) {
@@ -11,9 +12,9 @@ public class Country implements Measurable, Comparable {
     public void setPopulation(int pop) { population += pop; }
 
     public int compareTo(Measurable obj) {
-        if (balance < obj.getMeasure()) {
+        if (population < (int)obj.getMeasure()) {
             return(-1);
-        } else if (balance > obj.getMeasure()) {
+        } else if (population > (int)obj.getMeasure()) {
             return(1);
         }
         return(0);

@@ -1,7 +1,8 @@
+package interfaces;
 /* Data */
 public class Data {
     public static Double sum(Measurable[] arr) {
-        double sum = 0;
+        Double sum = Double.valueOf(0); //(double)0;
         for (Measurable object: arr) {
             if (object.getMeasure() instanceof Double) {
                 sum += (double)object.getMeasure();
@@ -11,9 +12,9 @@ public class Data {
         }
         return(sum);
     }
-    public static double average(Measurable[] arr) {
+    public static Double average(Measurable[] arr) {
         if (arr.length == 0) {
-            return(0);
+            return(Double.valueOf(0));
         }
         return(sum(arr)/arr.length);
     }

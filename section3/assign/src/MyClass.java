@@ -11,20 +11,16 @@ import java.io.IOException;
  */
 
 public class MyClass {
-  public void myMethod1() {
+  public void myMethod1() throws FileNotFoundException {
     myMethod2();
   }
 
-  public void myMethod2() {
+  public void myMethod2() throws FileNotFoundException {
     myMethod3();
   }
 
-  public void myMethod3() {
-    try {
-      File file = new File("filename.txt");
-    } catch (FileNotFoundException e) {
-      System.out.println("File Not Found! "+e.message());
-    }
+  public void myMethod3() throws FileNotFoundException {
+    File file = new File("filename.txt");
     Scanner sc = new Scanner(file);
   }
 }
