@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Collection;
 /* LargestInt */
 public class LargestInt {
     public static void main(String[] args) {

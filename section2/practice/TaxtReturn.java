@@ -15,7 +15,7 @@ class TaxReturn {
   }
 
   public TaxReturn(int mStatus, double inc) {
-    status = mStatusl;
+    status = mStatus;
     income = inc;
     taxValue = 0.0;
   }
