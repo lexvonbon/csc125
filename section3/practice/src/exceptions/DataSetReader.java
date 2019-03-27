@@ -7,14 +7,35 @@ import java.util.Scanner;
  * DataSetReader
  */
 public class DataSetReader {
+  private double[] data;
 
-    public static void readFile(String file) throws FileNotFoundException, BadDataException {
-        Scanner fileReader = new Scanner(file);
-        readData(fileReader);
-        fileReader.close();
+  public double[] readFile(String fileName) throws FileNotFoundException,
+  BadDataException {
+    File openFile = new File(fileName);
+    try (Scanner fileReader = new Scanner(openFile)) {
+      readData(fileReader);
+      return(data);
     }
-    public static void readData(Scanner fileReader) throws BadDataException { readValue(); }
-    public static void readValue() throws BadDataException {
-        throw new BadDataException("Bad Bad Data.");
+  }
+
+  public void readData(Scanner fileReader) throws BadDataException {
+    if (!fileReader.hasNext()) {
+      throw new BadDataException("Length Expection");
     }
+    int numOfValues = fileReader.nextInt();
+    data = new double[numOfValues];
+
+    for (int i = 0; i < data.length; i += 1) {
+      readValue(fileReader, i);
+    }
+    if (fileReader.hasNext()) {
+      throw new BadDataException("End of file expected");
+    }
+  }
+  private void readValue(Scanner fileReader, int i) throws BadDataException {
+    if (!fileReader.hasNextDouble()) {
+      throw new BadDataException("Bad Bad Data.");
+    }
+    data[i] = fileReader.nextDouble();
+  }
 }
