@@ -1,8 +1,8 @@
-import java.util.ArrayList;
-
 /**
  * MultipleChoice
  */
+import java.util.ArrayList;
+
 public class MultipleChoice<T> extends Question {
   private String question;
   private T answer;

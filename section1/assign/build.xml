@@ -17,6 +17,9 @@
         <attribute name="Main-Class" value="SavingsAccountTester" />
       </manifest>
     </jar>
+    <delete>
+      <fileset dir="${build}" includes="*.class"/>
+    </delete>
   </target>
 
   <target name="clean"

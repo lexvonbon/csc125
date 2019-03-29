@@ -1,7 +1,7 @@
 /**
  * SingleChoice
  */
-public class SingleChoice<T> implements Question {
+public class SingleChoice<T> extends Question {
   private String question;
   private T answer;
 

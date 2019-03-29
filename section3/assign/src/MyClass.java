@@ -1,6 +1,3 @@
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 /**
  * MyClass
  * Problem Statement II
@@ -9,6 +6,8 @@ import java.io.IOException;
  * You don't need to code this but just write in notepad by modifying the class below and showing what the exceptions and try/catch code will look like and upload the file as an attachment.
  * 
  */
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class MyClass {
   public void myMethod1() throws FileNotFoundException {
