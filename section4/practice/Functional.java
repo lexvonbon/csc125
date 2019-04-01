@@ -6,12 +6,12 @@ import java.util.function.Function;
  */
 public class Functional {
 
-    public static Collection<R> map(Function<T,R> func, Collection<T> iter) {
-        Collection<R> newIter = new Collection<R>();
+    public static Collection<Object> map(Function<Object, Object> func, Collection<Object> iter) {
+        Collection<Object> newIter = iter.getClass().getDeclaredConstructor().newInstance();
         if (iter.isEmpty()) {
             return(newIter);
         }
-        for (T item: iter) {
+        for (Object item: iter) {
             newIter.add(func.apply(item));
         }
         return(newIter);
