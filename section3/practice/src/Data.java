@@ -1,4 +1,3 @@
-package interfaces;
 /* Data */
 public class Data {
     public static Double sum(Measurable[] arr) {

@@ -13,9 +13,9 @@ public class DataAnalyzer {
     DataSetReader inputReader = new DataSetReader();
     try {
       System.out.println("Please enter the file name: ");
-      String fileName = in.next();
+      String fileName = input.next();
 
-      double[] data = reader.ReadFile(fileName);
+      double[] data = inputReader.ReadFile(fileName);
       double sum = 0;
       for (double d: data) {
         sum += d;
