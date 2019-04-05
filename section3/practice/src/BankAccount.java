@@ -1,6 +1,3 @@
-package interfaces;
-
-import exceptions.*;
 /* BankAccount */
 public class BankAccount implements Measurable {
     private Double balance;

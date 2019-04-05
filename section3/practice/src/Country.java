@@ -1,4 +1,3 @@
-package interfaces;
 /* Country */
 public class Country implements Measurable {
     private Integer population;

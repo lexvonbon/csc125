@@ -1,5 +1,3 @@
-package chapter11;
-
 /**
  * Write a description of class TestingExceptions here.
  *
