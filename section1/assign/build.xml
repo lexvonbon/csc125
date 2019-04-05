@@ -22,9 +22,8 @@
     </delete>
   </target>
 
-  <target name="clean"
-          description="Clean the Build">
     <!-- Delete the ${build} directory tree -->
+  <target name="clean" description="Clean the Build">
     <delete dir="${build}"/>
   </target>
 </project>

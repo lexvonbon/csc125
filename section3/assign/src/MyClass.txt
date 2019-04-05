@@ -8,17 +8,23 @@
  */
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 
 public class MyClass {
-  public void myMethod1() throws FileNotFoundException {
-    myMethod2();
+  public void myMethod1() {
+    try {
+      myMethod2();
+    } catch (FileNotFoundException e) {
+
+    }
   }
 
   public void myMethod2() throws FileNotFoundException {
     myMethod3();
   }
 
-  public void myMethod3() throws FileNotFoundException {
+  public void myMethod3() throws FileNotFoundException, IllegalArgumentException,
+    IOException, NullPointerException {
     File file = new File("filename.txt");
     Scanner sc = new Scanner(file);
   }

@@ -1,4 +1,4 @@
-<project name="Assignment 2" basedir=".">
+<project name="Assignment 3" basedir=".">
   <property name="src" location="src"/>
   <property name="build" location="build"/>
 
@@ -13,11 +13,28 @@
 
   <!-- Build Problem 1 -->
   <target name="problem1" depends="init" description="Compiles the Source for Problem 1">
-    <javac srcdir="${src}" destdir="${build}" classpath="${src}" includes="MyClass.java" />
+    <copy todir="${build}\res">
+      <fileset dir="${src}\res" />
+    </copy>
+    <javac srcdir="${src}" destdir="${build}" classpath="${src}" />
+    <jar basedir="${build}" destfile="${build}\Questionnaire.jar">
+      <manifest>
+        <attribute name="Main-Class" value="Questionnaire" />
+      </manifest>
+    </jar>
+    <delete>
+      <fileset dir="${build}" includes="*.class" />
+      <fileset dir="${build}" includes="*/res" />
+    </delete>
   </target>
 
   <!-- Build Problem 2 -->
-  <target name="problem2" depends="init" description="Compiles the Source for Problem 2">
-    <javac srcdir="${src}" destdir="${build}" classpath="${src}" includes="Questionnaire.java" />
+  <target name="problem2" depends="init" description="Inserts file for Problem 2">
+    <copy file="${src}\MyClass.txt" todir="${build}" />
+  </target>
+
+  <!-- Delete the ${build} directory tree -->
+  <target name="clean" description="Clean the Build">
+    <delete dir="${build}" />
   </target>
 </project>

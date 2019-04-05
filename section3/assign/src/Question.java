@@ -1,23 +1,30 @@
 /**
  * Question
  */
-public class Question<T> {
+public class Question {
   private String question;
-  private T answer;
+  private String answer;
 
-  public Question() {
-    question = "";
-    answer = new T();
-  }
-  public Question(final String q, final T a) {
+  // Constructors
+  public Question() { this("",""); }
+  public Question(final String q, final String a) {
     question = q;
     answer = a;
   };
+  // Copy Constructor
+  public Question(final Question q) {
+    question = q.getQuestion();
+    answer = q.getAnswer();
+  }
+  // -----
 
   public String getQuestion() { return(question); }
-  public T getAnswer() { return(answer); }
+  public String getAnswer() { return(answer); }
 
-  public Boolean guess(final T g) {
-    return(g == answer);
+  public void setQuestion(final String q) { question = q; }
+  public void setAnswer(final String a) { answer = a; }
+
+  public Boolean checkAnswer(final String guess) {
+    return(answer.equalsIgnoreCase(guess));
   };
 }
