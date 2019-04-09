@@ -17,15 +17,13 @@
       <fileset dir="${src}\res" />
     </copy>
     <javac srcdir="${src}" destdir="${build}" classpath="${src}" />
-    <jar basedir="${build}" destfile="${build}\Questionnaire.jar">
+    <jar basedir="${build}" destfile="${build}\Quiz.jar">
       <manifest>
-        <attribute name="Main-Class" value="Questionnaire" />
+        <attribute name="Main-Class" value="Quiz" />
       </manifest>
     </jar>
-    <delete>
-      <fileset dir="${build}" includes="*.class" />
-      <fileset dir="${build}" includes="*/res" />
-    </delete>
+    <delete dir="${build}" includes="*.class" />
+    <delete dir="${build}\res" />
   </target>
 
   <!-- Build Problem 2 -->
@@ -34,7 +32,7 @@
   </target>
 
   <!-- Delete the ${build} directory tree -->
-  <target name="clean" description="Clean the Build">
+  <target name="clean" description="Cleans the Build">
     <delete dir="${build}" />
   </target>
 </project>

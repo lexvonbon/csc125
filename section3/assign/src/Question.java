@@ -24,7 +24,12 @@ public class Question {
   public void setQuestion(final String q) { question = q; }
   public void setAnswer(final String a) { answer = a; }
 
+  public Boolean checkAnswer(final Integer index) {
+    return(answer.equalsIgnoreCase(index.toString()));
+  }
   public Boolean checkAnswer(final String guess) {
     return(answer.equalsIgnoreCase(guess));
   };
+
+  public void readQuestion() { System.out.println(question); }
 }

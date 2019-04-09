@@ -41,10 +41,19 @@ public class MultipleChoice extends Question {
   public void removeChoice(Integer index) { choices.remove(index); }
   public void removeChoice(Collection<String> choiceArray) { choices.removeAll(choiceArray); }
 
-  public Boolean checkAnswer(Integer index) {
+  public Boolean checkAnswer(final Integer index) {
     return(answer.equalsIgnoreCase(choices.get(index)));
   }
-  public Boolean checkAnswer(String guess) {
+  public Boolean checkAnswer(final String guess) {
     return(answer.equalsIgnoreCase(guess));
+  }
+
+  public void readQuestion() {
+    System.out.println(question);
+    for (Integer index = 0; index < choices.size(); index += 1) {
+      System.out.print("   [");
+      System.out.print(Character.toChars(0x61 + index));
+        System.out.println("] "+choices.get(index));
+    }
   }
 }

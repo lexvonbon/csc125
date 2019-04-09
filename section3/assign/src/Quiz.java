@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;;
+import java.util.Scanner;
 /**
  * Quiz
  * Problem Statement I
@@ -15,55 +15,84 @@ import java.util.Scanner;;
 public class Quiz {
   protected static ArrayList<Question> questionList;
   
-  protected static void loadQuestions(BufferedReader reader) throws IOException {
+  protected static void loadQuestions(final ArrayList<String> questions) {
     System.out.println("LoadQuestions");
-    String line;
-    int index = 0;
-    while ((line = reader.readLine()) != null) {
-      questionList.get(index).setQuestion(line);
+    Integer index = 0;
+    for (String question: questions) {
+      questionList.get(index).setQuestion(question);
       index += 1;
     }
-    reader.close();
   }
-  protected static void loadAnswers(BufferedReader reader) throws IOException {
+  protected static void loadAnswers(final ArrayList<String> lines) {
     System.out.println("LoadAnswers");
-    String line;
-    while ((line = reader.readLine()) != null) {
-      String[] values = line.split(", ");
-      if (values.length > 1) {
+    ArrayList<String[]> parsedLines = ResourceLoader.parseLines(lines);
+    for (String[] line : parsedLines) {
+      if (line.length > 1) {
         MultipleChoice q = new MultipleChoice();
-        q.addChoice(values);
-        q.setAnswer(values[0]);
+        q.addChoice(line);
+        q.setAnswer(line[0]);
         questionList.add(q);
       } else {
         Question q = new Question();
-        q.setAnswer(values[0]);
+        q.setAnswer(line[0]);
         questionList.add(q);
       }
     }
-    reader.close();
+  }
+  protected static void startGame() {
+  }
+  protected static void endGame() {
+    System.out.println("Thanks for Playing.");
+  }
+  protected static void readQuestion(Integer index) {
+
   }
   public static void main(String[] args) {
     questionList = new ArrayList<>();
-    BufferedReader ans = ResourceLoader.getReader(ResourceLoader.getStream("res/answers.txt"));
-    BufferedReader qus = ResourceLoader.getReader(ResourceLoader.getStream("res/questions.txt"));
-
-    try {
-      loadAnswers(ans);
-      loadQuestions(qus);
-    } catch (IOException e) {
-      System.out.println("Error on Input");
-    }
+    ArrayList<String> ans = ResourceLoader.getResource("res/answers.txt");
+    ArrayList<String> qus = ResourceLoader.getResource("res/questions.txt");
+    loadAnswers(ans);
+    loadQuestions(qus);
 
     Scanner userInput = new Scanner(System.in);
     Boolean exit = false;
-    Integer index = 0;
+    Integer currentQuestion = 0;
+
+    startGame();
     while (!exit) {
-      System.out.println(questionList.get(index).getQuestion());
-      if (index == questionList.size()-1) {
+      System.out.print((currentQuestion+1)+". ");
+      questionList.get(currentQuestion).readQuestion();
+      Boolean isCorrect;
+
+      if (userInput.hasNextInt()) {
+        isCorrect = questionList.get(currentQuestion).checkAnswer(userInput.nextInt());
+        System.out.println(isCorrect);
+      } else if (userInput.hasNext()) {
+        String in = userInput.next();
+        if (in.equalsIgnoreCase("q")) {
+          System.out.println("Thanks for playing.");
+          System.exit(0);
+        }
+        if (in.length() == 1) {
+          isCorrect = questionList.get(currentQuestion).checkAnswer(Character.getNumericValue(in.charAt(0))-10);
+        } else {
+          isCorrect = questionList.get(currentQuestion).checkAnswer(in);
+        }
+        System.out.println(isCorrect);
+      }
+      try {
+        System.out.println("-----------------------");
+        System.out.println();
+      } finally {
+        System.out.println("Was there output before this?");
+      }
+      // Check Answer For Score
+
+      if (currentQuestion == questionList.size()-1) {
         exit = true;
       }
-      index += 1;
+      currentQuestion += 1;
     }
+    endGame();
   }
 }
