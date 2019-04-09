@@ -1,20 +1,7 @@
-Yes, No, Don't Know
-13 - 16, 17 - 19, 20 - 24, 25 - 29
-Guessed, Wrote it out on paper, In my head, A calculator
-Never, Yes, Do comic books count?
-No, All the time, Huh?
-No, Yes, What does that mean?
-Canada, United States, Mexico, They aren't
-8, 16, 44, 60
-No, Yes, To within a second!
-Five, Seven, Eight, Nine
-Five, Six, Seven, Nine
-11, 35, 50, 55
-Grasshopper, Dog, Alligator, Grass
-A lot, None, 8m, 8m3
-Three, Four, Five, Six
-Violet, Red, Blue, Green
-1 hour, 2 hours, 3 hours, 4 hours
-A country, A state/province, A continent
-Electrochemical Reaction, Isothermal Convection, Magic, Electromotive Reduction
-Yes, No
+2
+256
+Ulaanbaatar, Dodoma, Washington, Richmond
+Elon
+William
+Venus, Earth, Jupiter, Uranus
+Lex
