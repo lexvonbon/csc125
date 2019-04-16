@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Quiz {
   protected static ArrayList<Question> questionList;
-  
+
   protected static void loadQuestions(final ArrayList<String> questions) {
     System.out.println("Loading Answers");
     Integer index = 0;
@@ -68,9 +68,9 @@ public class Quiz {
       questionList.get(currentQuestion).readQuestion();
       Boolean isCorrect = false;
 
-      System.out.print("Enter answer/option or Q to quit:  ");
+      System.out.print("Enter answer/option or Q to quit: ");
       if (userInput.hasNext()) {
-        String in = userInput.next();
+        String in = userInput.nextLine();
         if (in.equalsIgnoreCase("q")) {
           System.out.println("Thanks for playing.");
           System.exit(0);

@@ -20,13 +20,13 @@
 ### _Alternative_
  1. _`cd`_ into `src` directory
  2. Run `javac -d ..\build -cp . *.java`
- 3. _`cd`_ into `..\build` directory
-
+ 4. Run `cp MyClass.txt ..\build\MyClass.txt`
+ 5. _`cd`_ into `..\build` directory
 
 ## Test Instructions
-  To test each module:
-  - Run `java Questionnaire`
-  - Run `java MyClass`
+  To test:
+  - _`cd`_ into `build` directory
+  - Run `java -jar Quiz.jar` OR if built without ANT: `java Quiz`
 
 ## Cleaning Instructions
  1. _`cd`_ into the main directory
