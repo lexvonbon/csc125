@@ -29,74 +29,61 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */ 
 
-package layout;
+package misc;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 /*
- * BorderLayoutDemo.java
- *
+ * FocusConceptsDemo.java requires no other files.
  */
-import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
+public class FocusConceptsDemo extends JPanel {
 
-public class BorderLayoutDemo {
-    public static boolean RIGHT_TO_LEFT = false;
-    
-    public static void addComponentsToPane(Container pane) {
-        
-        if (!(pane.getLayout() instanceof BorderLayout)) {
-            pane.add(new JLabel("Container doesn't use BorderLayout!"));
-            return;
-        }
-        
-        if (RIGHT_TO_LEFT) {
-            pane.setComponentOrientation(
-                    java.awt.ComponentOrientation.RIGHT_TO_LEFT);
-        }
-        
-        JButton button = new JButton("Button 1 (PAGE_START)");
-        pane.add(button, BorderLayout.PAGE_START);
-        
-        //Make the center component big, since that's the
-        //typical usage of BorderLayout.
-        button = new JButton("Button 2 (CENTER)");
-        button.setPreferredSize(new Dimension(200, 100));
-        pane.add(button, BorderLayout.CENTER);
-        
-        button = new JButton("Button 3 (LINE_START)");
-        pane.add(button, BorderLayout.LINE_START);
-        
-        button = new JButton("Long-Named Button 4 (PAGE_END)");
-        pane.add(button, BorderLayout.PAGE_END);
-        
-        button = new JButton("5 (LINE_END)");
-        pane.add(button, BorderLayout.LINE_END);
+    static JFrame frame;
+    JTextField t1, t2, t3, t4;
+    JButton b1, b2, b3, b4;
+    JTextArea text1;
+
+    public FocusConceptsDemo() {
+        super(new BorderLayout());
+
+        b1 = new JButton("JButton");
+        b2 = new JButton("JButton");
+        b3 = new JButton("JButton");
+        b4 = new JButton("JButton");
+        JPanel buttonPanel = new JPanel(new GridLayout(1,1));
+        buttonPanel.add(b1);
+        buttonPanel.add(b2);
+        buttonPanel.add(b3);
+        buttonPanel.add(b4);
+
+        text1 = new JTextArea("JTextArea", 15, 40);
+        JPanel textAreaPanel = new JPanel(new BorderLayout());
+        textAreaPanel.add(text1, BorderLayout.CENTER);
+
+        t1 = new JTextField("JTextField");
+        t2 = new JTextField("JTextField");
+        t3 = new JTextField("JTextField");
+        t4 = new JTextField("JTextField");
+        JPanel textFieldPanel = new JPanel(new GridLayout(1,1));
+        textFieldPanel.add(t1);
+        textFieldPanel.add(t2);
+        textFieldPanel.add(t3);
+        textFieldPanel.add(t4);
+
+        add(buttonPanel, BorderLayout.PAGE_START);
+        add(textAreaPanel, BorderLayout.CENTER);
+        add(textFieldPanel, BorderLayout.PAGE_END);
+        setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
     }
-    
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event dispatch thread.
-     */
-    private static void createAndShowGUI() {
-        
-        //Create and set up the window.
-        JFrame frame = new JFrame("BorderLayoutDemo");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Set up the content pane.
-        addComponentsToPane(frame.getContentPane());
-        //Use the content pane's default BorderLayout. No need for
-        //setLayout(new BorderLayout());
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
-    }
-    
+
     public static void main(String[] args) {
-        /* Use an appropriate Look and Feel */
+	
+	/* Use an appropriate Look and Feel */
         try {
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (UnsupportedLookAndFeelException ex) {
             ex.printStackTrace();
@@ -107,10 +94,11 @@ public class BorderLayoutDemo {
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }
-        /* Turn off metal's use bold fonts */
+        /* Turn off metal's use of bold fonts */
         UIManager.put("swing.boldMetal", Boolean.FALSE);
-        
-        //Schedule a job for the event dispatch thread:
+	
+	
+        //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -118,4 +106,26 @@ public class BorderLayoutDemo {
             }
         });
     }
+    
+    /**
+     * Create the GUI and show it.  For thread safety,
+     * this method should be invoked from the
+     * event-dispatching thread.
+     */
+    private static void createAndShowGUI() {
+        //Create and set up the window.
+        frame = new JFrame("FocusConceptsDemo");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //Create and set up the content pane.
+        JComponent newContentPane = new FocusConceptsDemo();
+        newContentPane.setOpaque(true); //content panes must be opaque
+        frame.setContentPane(newContentPane);
+
+        //Display the window.
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    
 }

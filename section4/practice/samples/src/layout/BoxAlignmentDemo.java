@@ -27,10 +27,10 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
- 
+ */ 
+
 package layout;
- 
+
 /*
  * BoxAlignmentDemo.java requires the following files:
  *   images/middle.gif
@@ -40,49 +40,49 @@ package layout;
  * a BoxLayout for components with maximum sizes and different
  * default alignments.
  */
- 
+
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
- 
+
 public class BoxAlignmentDemo extends JPanel {
     public BoxAlignmentDemo() {
         super(new BorderLayout());
         JTabbedPane tabbedPane = new JTabbedPane();
- 
+
         JPanel buttonRow = new JPanel();
         //Use default FlowLayout.
         buttonRow.add(createButtonRow(false));
         buttonRow.add(createButtonRow(true));
         tabbedPane.addTab("Altering alignments", buttonRow);
- 
+
         JPanel labelAndComponent = new JPanel();
         //Use default FlowLayout.
         labelAndComponent.add(createLabelAndComponent(false));
         labelAndComponent.add(createLabelAndComponent(true));
         tabbedPane.addTab("X alignment mismatch", labelAndComponent);
- 
+
         JPanel buttonAndComponent = new JPanel();
         //Use default FlowLayout.
         buttonAndComponent.add(createYAlignmentExample(false));
         buttonAndComponent.add(createYAlignmentExample(true));
         tabbedPane.addTab("Y alignment mismatch", buttonAndComponent);
- 
+
         //Add tabbedPane to this panel.
         add(tabbedPane, BorderLayout.CENTER);
     }
- 
+
     protected JPanel createButtonRow(boolean changeAlignment) {
         JButton button1 = new JButton("A JButton",
                                       createImageIcon("images/middle.gif"));
         button1.setVerticalTextPosition(AbstractButton.BOTTOM);
         button1.setHorizontalTextPosition(AbstractButton.CENTER);
- 
+
         JButton button2 = new JButton("Another JButton",
                                       createImageIcon("images/geek-cght.gif"));
         button2.setVerticalTextPosition(AbstractButton.BOTTOM);
         button2.setHorizontalTextPosition(AbstractButton.CENTER);
- 
+
         String title;
         if (changeAlignment) {
             title = "Desired";
@@ -91,7 +91,7 @@ public class BoxAlignmentDemo extends JPanel {
         } else {
             title = "Default";
         }
- 
+
         JPanel pane = new JPanel();
         pane.setBorder(BorderFactory.createTitledBorder(title));
         pane.setLayout(new BoxLayout(pane, BoxLayout.X_AXIS));
@@ -99,10 +99,10 @@ public class BoxAlignmentDemo extends JPanel {
         pane.add(button2);
         return pane;
     }
- 
+
     protected JPanel createLabelAndComponent(boolean doItRight) {
         JPanel pane = new JPanel();
- 
+
         JComponent component = new JPanel();
         Dimension size = new Dimension(150,100);
         component.setMaximumSize(size);
@@ -115,7 +115,7 @@ public class BoxAlignmentDemo extends JPanel {
                                   TitledBorder.BELOW_TOP);
         border.setTitleColor(Color.black);
         component.setBorder(border);
- 
+
         JLabel label = new JLabel("This is a JLabel");
         String title;
         if (doItRight) {
@@ -124,18 +124,18 @@ public class BoxAlignmentDemo extends JPanel {
         } else {
             title = "Mismatched";
         }
- 
+
         pane.setBorder(BorderFactory.createTitledBorder(title));
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
         pane.add(label);
         pane.add(component);
         return pane;
     }
- 
+
     protected JPanel createYAlignmentExample(boolean doItRight) {
         JPanel pane = new JPanel();
         String title;
- 
+
         JComponent component1 = new JPanel();
         Dimension size = new Dimension(100, 50);
         component1.setMaximumSize(size);
@@ -148,7 +148,7 @@ public class BoxAlignmentDemo extends JPanel {
                                   TitledBorder.BELOW_TOP);
         border.setTitleColor(Color.black);
         component1.setBorder(border);
- 
+
         JComponent component2 = new JPanel();
         size = new Dimension(100, 50);
         component2.setMaximumSize(size);
@@ -160,21 +160,21 @@ public class BoxAlignmentDemo extends JPanel {
                                   TitledBorder.BELOW_TOP);
         border.setTitleColor(Color.black);
         component2.setBorder(border);
- 
+
         if (doItRight) {
             title = "Matched";
         } else {
             component1.setAlignmentY(TOP_ALIGNMENT);
             title = "Mismatched";
         }
- 
+
         pane.setBorder(BorderFactory.createTitledBorder(title));
         pane.setLayout(new BoxLayout(pane, BoxLayout.X_AXIS));
         pane.add(component1);
         pane.add(component2);
         return pane;
     }
- 
+
     /** Returns an ImageIcon, or null if the path was invalid. */
     protected static ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = BoxAlignmentDemo.class.getResource(path);
@@ -185,7 +185,7 @@ public class BoxAlignmentDemo extends JPanel {
             return null;
         }
     }
- 
+
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -195,17 +195,17 @@ public class BoxAlignmentDemo extends JPanel {
         //Create and set up the window.
         JFrame frame = new JFrame("BoxAlignmentDemo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
+
         //Create and set up the content pane.
         BoxAlignmentDemo newContentPane = new BoxAlignmentDemo();
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
- 
+
         //Display the window.
         frame.pack();
         frame.setVisible(true);
     }
- 
+
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.

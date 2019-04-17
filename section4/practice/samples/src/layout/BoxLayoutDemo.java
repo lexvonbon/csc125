@@ -32,37 +32,30 @@
 package layout;
 
 /*
- * AbsoluteLayoutDemo.java requires no other files.
+ * BoxLayoutDemo.java requires no other files.
  */
 
+import java.awt.Component;
 import java.awt.Container;
-import java.awt.Insets;
-import java.awt.Dimension;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class AbsoluteLayoutDemo {
+public class BoxLayoutDemo {
     public static void addComponentsToPane(Container pane) {
-        pane.setLayout(null);
+        pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 
-        JButton b1 = new JButton("one");
-        JButton b2 = new JButton("two");
-        JButton b3 = new JButton("three");
+        addAButton("Button 1", pane);
+        addAButton("Button 2", pane);
+        addAButton("Button 3", pane);
+        addAButton("Long-Named Button 4", pane);
+        addAButton("5", pane);
+    }
 
-        pane.add(b1);
-        pane.add(b2);
-        pane.add(b3);
-
-        Insets insets = pane.getInsets();
-        Dimension size = b1.getPreferredSize();
-        b1.setBounds(25 + insets.left, 5 + insets.top,
-                     size.width, size.height);
-        size = b2.getPreferredSize();
-        b2.setBounds(55 + insets.left, 40 + insets.top,
-                     size.width, size.height);
-        size = b3.getPreferredSize();
-        b3.setBounds(150 + insets.left, 15 + insets.top,
-                     size.width + 50, size.height + 20);
+    private static void addAButton(String text, Container container) {
+        JButton button = new JButton(text);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        container.add(button);
     }
 
     /**
@@ -72,16 +65,14 @@ public class AbsoluteLayoutDemo {
      */
     private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("AbsoluteLayoutDemo");
+        JFrame frame = new JFrame("BoxLayoutDemo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Set up the content pane.
         addComponentsToPane(frame.getContentPane());
 
-        //Size and display the window.
-        Insets insets = frame.getInsets();
-        frame.setSize(300 + insets.left + insets.right,
-                      125 + insets.top + insets.bottom);
+        //Display the window.
+        frame.pack();
         frame.setVisible(true);
     }
 

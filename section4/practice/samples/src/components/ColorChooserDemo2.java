@@ -37,17 +37,24 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.colorchooser.*;
 
-/* ColorChooserDemo.java requires no other files. */
-public class ColorChooserDemo extends JPanel
-                              implements ChangeListener {
+/* 
+ * ColorChooserDemo2.java requires these files:
+ *   CrayonPanel.java
+ *   images/red.gif
+ *   images/yellow.gif
+ *   images/green.gif
+ *   images/blue.gif
+ */
+public class ColorChooserDemo2 extends JPanel
+                               implements ActionListener,
+                                          ChangeListener {
+    public JLabel banner;
+    public JColorChooser tcc;
 
-    protected JColorChooser tcc;
-    protected JLabel banner;
-
-    public ColorChooserDemo() {
+    public ColorChooserDemo2() {
         super(new BorderLayout());
 
-        //Set up the banner at the top of the window
+        //Set up banner to use as custom preview panel
         banner = new JLabel("Welcome to the Tutorial Zone!",
                             JLabel.CENTER);
         banner.setForeground(Color.yellow);
@@ -60,14 +67,40 @@ public class ColorChooserDemo extends JPanel
         bannerPanel.add(banner, BorderLayout.CENTER);
         bannerPanel.setBorder(BorderFactory.createTitledBorder("Banner"));
 
-        //Set up color chooser for setting text color
-        tcc = new JColorChooser(banner.getForeground());
-        tcc.getSelectionModel().addChangeListener(this);
-        tcc.setBorder(BorderFactory.createTitledBorder(
-                                             "Choose Text Color"));
+        //Set up color chooser for setting background color
+        JPanel panel = new JPanel(); //use FlowLayout
+        JButton bcc = new JButton("Show Color Chooser...");
+        bcc.addActionListener(this);
+        panel.add(bcc);
+        panel.setBorder(BorderFactory.createTitledBorder(
+                                "Choose Background Color"));
 
-        add(bannerPanel, BorderLayout.CENTER);
+        //Set up color chooser for setting text color
+        tcc = new JColorChooser();
+        tcc.getSelectionModel().addChangeListener(this);
+        tcc.setBorder(BorderFactory.createTitledBorder("Choose Text Color"));
+
+        //Remove the preview panel
+        tcc.setPreviewPanel(new JPanel());
+
+        //Override the chooser panels with our own
+        AbstractColorChooserPanel panels[] = { new CrayonPanel() };
+        tcc.setChooserPanels(panels);
+        tcc.setColor(banner.getForeground());
+
+        add(bannerPanel, BorderLayout.PAGE_START);
+        add(panel, BorderLayout.CENTER);
         add(tcc, BorderLayout.PAGE_END);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        Color newColor = JColorChooser.showDialog(
+                                       ColorChooserDemo2.this,
+                                       "Choose Background Color",
+                                       banner.getBackground());
+        if (newColor != null) {
+            banner.setBackground(newColor);
+        }
     }
 
     public void stateChanged(ChangeEvent e) {
@@ -82,11 +115,11 @@ public class ColorChooserDemo extends JPanel
      */
     private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("ColorChooserDemo");
+        JFrame frame = new JFrame("ColorChooserDemo2");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Create and set up the content pane.
-        JComponent newContentPane = new ColorChooserDemo();
+        JComponent newContentPane = new ColorChooserDemo2();
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
 

@@ -40,3 +40,4 @@ build/
 *.zip
 *.tar
 *.gz
+/nbproject/private/
