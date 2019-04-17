@@ -41,3 +41,4 @@ build/
 *.tar
 *.gz
 /nbproject/private/
+/section4/practice/samples/nbproject/private/

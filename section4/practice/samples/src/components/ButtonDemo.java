@@ -29,8 +29,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */ 
 
-package components;
-
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JPanel;
