@@ -27,52 +27,39 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */ 
+
+// package events;
+
+/*
+ * Beeper.java requires no other files.
  */
 
-// package components;
-
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.event.*;
-import javax.swing.colorchooser.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.JComponent;
 
-/* ColorChooserDemo.java requires no other files. */
-public class ColorChooserDemo extends JPanel
-                              implements ChangeListener {
+import java.awt.Toolkit;
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-    protected JColorChooser tcc;
-    protected JLabel banner;
+public class Beeper extends JPanel 
+                    implements ActionListener {
+    JButton button;
 
-    public ColorChooserDemo() {
+    public Beeper() {
         super(new BorderLayout());
-
-        //Set up the banner at the top of the window
-        banner = new JLabel("Welcome to the Tutorial Zone!",
-                            JLabel.CENTER);
-        banner.setForeground(Color.yellow);
-        banner.setBackground(Color.blue);
-        banner.setOpaque(true);
-        banner.setFont(new Font("SansSerif", Font.BOLD, 24));
-        banner.setPreferredSize(new Dimension(100, 65));
-
-        JPanel bannerPanel = new JPanel(new BorderLayout());
-        bannerPanel.add(banner, BorderLayout.CENTER);
-        bannerPanel.setBorder(BorderFactory.createTitledBorder("Banner"));
-
-        //Set up color chooser for setting text color
-        tcc = new JColorChooser(banner.getForeground());
-        tcc.getSelectionModel().addChangeListener(this);
-        tcc.setBorder(BorderFactory.createTitledBorder(
-                                             "Choose Text Color"));
-
-        add(bannerPanel, BorderLayout.CENTER);
-        add(tcc, BorderLayout.PAGE_END);
+        button = new JButton("Click Me");
+        button.setPreferredSize(new Dimension(200, 80));
+        add(button, BorderLayout.CENTER);
+        button.addActionListener(this);
     }
 
-    public void stateChanged(ChangeEvent e) {
-        Color newColor = tcc.getColor();
-        banner.setForeground(newColor);
+    public void actionPerformed(ActionEvent e) {
+        Toolkit.getDefaultToolkit().beep();
     }
 
     /**
@@ -82,11 +69,11 @@ public class ColorChooserDemo extends JPanel
      */
     private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("ColorChooserDemo");
+        JFrame frame = new JFrame("Beeper");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Create and set up the content pane.
-        JComponent newContentPane = new ColorChooserDemo();
+        JComponent newContentPane = new Beeper();
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
 

@@ -42,3 +42,4 @@ build/
 *.gz
 /nbproject/private/
 /section4/practice/samples/nbproject/private/
+*.jnlp
