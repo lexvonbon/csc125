@@ -46,6 +46,13 @@ public class GameGUI extends JFrame {
         jPanel1.setBackground(new java.awt.Color(200, 200, 200));
         jPanel1.setForeground(new java.awt.Color(21, 21, 21));
         jPanel1.setToolTipText("");
+        jPanel1.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
+            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
+            }
+            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
+                jPanel1AncestorResized(evt);
+            }
+        });
 
         prevQuestionButton.setText("Previous");
         prevQuestionButton.setMaximumSize(new java.awt.Dimension(128, 48));
@@ -65,7 +72,6 @@ public class GameGUI extends JFrame {
 
         pagePane.setMaximumSize(new java.awt.Dimension(128, 48));
         pagePane.setMinimumSize(new java.awt.Dimension(128, 48));
-        pagePane.setPreferredSize(new java.awt.Dimension(128, 48));
 
         pageNumberField.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         pageNumberField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -176,9 +182,7 @@ public class GameGUI extends JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,6 +199,11 @@ public class GameGUI extends JFrame {
     private void pageNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pageNumberFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pageNumberFieldActionPerformed
+
+    private void jPanel1AncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_jPanel1AncestorResized
+        // TODO add your handling code here:
+        jPanel1.setSize(this.getSize());
+    }//GEN-LAST:event_jPanel1AncestorResized
 
     /**
      * @param args the command line arguments

@@ -1,0 +1,10 @@
+A bank system contains data on customers (identified by name and address) and their
+  accounts. Each account has a balance and there are 2 types of accounts: one for
+  savings which offers an interest rate, the other for investments, used to buy stocks.
+  Stocks are bought at a certain quantity for a certain price (ticker) and the bank
+  applies commission on stock orders.
+
+Your task is to model a UML diagram for the bank system. Task: Draw a class diagram
+  which consists of all the classes in your system their attributes and operations,
+  relationships between the classes, multiplicity specifications, and other model
+  elements that you find appropriate.

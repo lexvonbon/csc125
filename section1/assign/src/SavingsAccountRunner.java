@@ -1,13 +1,11 @@
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.lang.Double;
 
-public class SavingsAccountTester {
+public class SavingsAccountRunner {
   public static void main(String[] args) throws IOException {
 
-    BufferedReader file = new BufferedReader(new InputStreamReader(SavingsAccountTester.class.getResourceAsStream("info.txt")));
+    BufferedReader file = new BufferedReader(new InputStreamReader(SavingsAccountRunner.class.getResourceAsStream("info.txt")));
     String line;
     while((line = file.readLine()) != null) {
       String[] values = line.split(",");
